@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import React from "react";
 import "./index.scss";
+import { ConfigContext } from "./ConfigProvider";
 
 export type SizeType = "small" | "medium" | "large" | number | undefined;
 
@@ -14,17 +15,30 @@ export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   wrap?: boolean;
 }
 
+const spaceSize = {
+  small: 8,
+  middle: 16,
+  large: 24,
+} as Record<string, number>;
+
+function getNumberSize(size: SizeType) {
+  return typeof size === "string" ? spaceSize[size] : size || 0;
+}
+
 const Space: React.FC<SpaceProps> = (props) => {
+  const { space: spaceConfig } = React.useContext(ConfigContext);
   const {
     className,
     style,
-    size = "small",
+    children,
+    size = spaceConfig?.size || "small",
     direction = "horizontal",
     align,
+    split,
     wrap = false,
     ...otherProps
   } = props;
-  const childNodes = React.Children.toArray(otherProps.children);
+  const childNodes = React.Children.toArray(children);
   const mergeAlign =
     direction === "horizontal" && align === undefined ? "center" : align;
   const cn = classNames(
@@ -35,16 +49,41 @@ const Space: React.FC<SpaceProps> = (props) => {
     },
     className,
   );
+
   const nodes = childNodes.map((child: any, index) => {
     const key = (child && child.key) || `space-item-${index}`;
     return (
-      <div className="space-item" key={key}>
-        {child}
-      </div>
+      <>
+        <div className="space-item" key={key}>
+          {child}
+        </div>
+        {index < childNodes.length && split && (
+          <span className={`${className}-split`} style={style}>
+            {split}
+          </span>
+        )}
+      </>
     );
   });
+
+  const otherStyles: React.CSSProperties = {};
+  const [horizontalSize, verticalSize] = React.useMemo(
+    () =>
+      ((Array.isArray(size) ? size : [size, size]) as [SizeType, SizeType]).map(
+        (item) => getNumberSize(item),
+      ),
+    [size],
+  );
+
+  otherStyles.columnGap = horizontalSize;
+  otherStyles.rowGap = verticalSize;
+
+  if (wrap) {
+    otherStyles.flexWrap = "wrap";
+  }
+
   return (
-    <div className={cn} style={style} {...otherProps}>
+    <div className={cn} style={{ ...style, ...otherStyles }} {...otherProps}>
       {nodes}
     </div>
   );

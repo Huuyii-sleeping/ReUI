@@ -3,6 +3,7 @@ import Calendar from "./components/Calendar";
 import { IconAdd } from "./components/Icon/icons/IconAdd";
 import { IconEmail } from "./components/Icon/icons/IconEmail";
 import Space from "./components/Space";
+import './App.css'
 
 function App() {
   return (
@@ -12,10 +13,16 @@ function App() {
       <IconEmail spin></IconEmail>
       <IconEmail style={{ color: "red" }}></IconEmail>
       <div>
-        <Space direction="vertical" align="end">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
+        <Space
+          className="container"
+          direction="horizontal"
+          align="end"
+          wrap={true}
+          size={["large", "small"]}
+        >
+          <div className="box"></div>
+          <div className="box"></div>
+          <div className="box"></div>
         </Space>
       </div>
     </div>
