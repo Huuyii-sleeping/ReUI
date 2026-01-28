@@ -1,10 +1,9 @@
-import dayjs from "dayjs";
-import Calendar from "./components/Calendar";
 import { IconAdd } from "./components/Icon/icons/IconAdd";
 import { IconEmail } from "./components/Icon/icons/IconEmail";
 import Space from "./components/Space";
 import "./App.css";
 import Portal from "./components/Portal";
+import CopyToClipboard from "./components/CopyToClipboard";
 
 function App() {
   const content = (
@@ -34,6 +33,12 @@ function App() {
 
       <div>
         <Portal attach="body">{content}</Portal>
+      </div>
+
+      <div>
+        <CopyToClipboard text="hello world">
+          <button>Copy</button>
+        </CopyToClipboard>
       </div>
     </div>
   );
