@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export default function useMountedState(): () => boolean {
+const useMountedState = (): (() => boolean) => {
   const mountedRef = React.useRef<boolean>(false);
   const get = React.useCallback(() => mountedRef.current, []);
 
@@ -13,4 +13,6 @@ export default function useMountedState(): () => boolean {
   }, []);
 
   return get;
-}
+};
+
+export default useMountedState;
