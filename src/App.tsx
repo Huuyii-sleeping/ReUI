@@ -5,6 +5,7 @@ import "./App.css";
 import Portal from "./components/Portal";
 import CopyToClipboard from "./components/CopyToClipboard";
 import Watermark from "./components/Watermark";
+import LazyLoad from "./components/LazyLoad";
 
 function App() {
   const content = (
@@ -15,7 +16,7 @@ function App() {
   return (
     <div className="App">
       {/* <Calendar value={dayjs()} locale="en-US"></Calendar> */}
-      <IconAdd size="40px"></IconAdd>
+      <IconAdd size="40px" onClick={() => console.log(1111)}></IconAdd>
       <IconEmail spin></IconEmail>
       <IconEmail style={{ color: "red" }}></IconEmail>
       <div>
@@ -38,7 +39,7 @@ function App() {
 
       <div>
         <CopyToClipboard text="hello world">
-          <button>Copy</button>
+          <button onClick={() => console.log("click")}>Copy</button>
         </CopyToClipboard>
       </div>
       <Watermark content={["测试水印", "神说要有光"]}>
@@ -88,7 +89,11 @@ function App() {
         </div>
       </Watermark>
 
-      <div></div>
+      <div>
+        <LazyLoad>
+          <div className="box">11111</div>
+        </LazyLoad>
+      </div>
     </div>
   );
 }
