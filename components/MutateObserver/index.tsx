@@ -1,5 +1,5 @@
 import * as React from "react";
-import useMutationObserver from "../../hooks/useMutateObserver";
+import useMutationObserver from "../../../hooks/useMutateObserver";
 
 interface MutationObserverProps {
   options?: MutationObserverInit;

@@ -57,9 +57,9 @@ function MonthCalendar(props: MonthCalendarProps) {
   const allDays = getAllDays(curMonth);
 
   function renderDays(days: Array<{ date: Dayjs; currentMonth: boolean }>) {
-    const rows = [];
+    const rows = [] as any;
     for (let i = 0; i < 6; i++) {
-      const row = [];
+      const row = [] as any;
       for (let j = 0; j < 7; j++) {
         const item = days[i * 7 + j];
         row[j] = (
