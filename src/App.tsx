@@ -4,6 +4,7 @@ import Space from "./components/Space";
 import "./App.css";
 import Portal from "./components/Portal";
 import CopyToClipboard from "./components/CopyToClipboard";
+import Watermark from "./components/Watermark";
 
 function App() {
   const content = (
@@ -40,6 +41,54 @@ function App() {
           <button>Copy</button>
         </CopyToClipboard>
       </div>
+      <Watermark content={["测试水印", "神说要有光"]}>
+        <div style={{ height: 800 }}>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos quod
+            deserunt quidem quas in rem ipsam ut nesciunt asperiores dignissimos
+            recusandae minus, eaque, harum exercitationem esse sapiente?
+            Eveniet, id provident!
+          </p>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos quod
+            deserunt quidem quas in rem ipsam ut nesciunt asperiores dignissimos
+            recusandae minus, eaque, harum exercitationem esse sapiente?
+            Eveniet, id provident!
+          </p>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos quod
+            deserunt quidem quas in rem ipsam ut nesciunt asperiores dignissimos
+            recusandae minus, eaque, harum exercitationem esse sapiente?
+            Eveniet, id provident!
+          </p>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos quod
+            deserunt quidem quas in rem ipsam ut nesciunt asperiores dignissimos
+            recusandae minus, eaque, harum exercitationem esse sapiente?
+            Eveniet, id provident!
+          </p>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos quod
+            deserunt quidem quas in rem ipsam ut nesciunt asperiores dignissimos
+            recusandae minus, eaque, harum exercitationem esse sapiente?
+            Eveniet, id provident!
+          </p>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos quod
+            deserunt quidem quas in rem ipsam ut nesciunt asperiores dignissimos
+            recusandae minus, eaque, harum exercitationem esse sapiente?
+            Eveniet, id provident!
+          </p>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos quod
+            deserunt quidem quas in rem ipsam ut nesciunt asperiores dignissimos
+            recusandae minus, eaque, harum exercitationem esse sapiente?
+            Eveniet, id provident!
+          </p>
+        </div>
+      </Watermark>
+
+      <div></div>
     </div>
   );
 }
