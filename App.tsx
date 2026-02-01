@@ -1,31 +1,30 @@
-import { IconAdd } from "./components/Icon/icons/IconAdd";
-import { IconEmail } from "./components/Icon/icons/IconEmail";
-import Space from "./components/Space";
-import "./App.css";
-import Portal from "./components/Portal";
-import CopyToClipboard from "./components/CopyToClipboard";
-import Watermark from "./components/Watermark";
-import LazyLoad from "./components/LazyLoad";
-import useHover from "./hooks/useHover";
+import { ConfigProvider } from "./components/Message/ConfigProvider";
+import { useMessage } from "./components/Message/useMessage";
 
-function App() {
-  const element = (hovered: boolean) => {
-    return <div>Hover me! {hovered ? "Yes" : "No"}</div>;
-  };
-  const [hoverable, hovered] = useHover(element);
+function Aaa() {
+  const message = useMessage();
+
   return (
-    <div className="App">
-      <div>
-        <LazyLoad>
-          <div className="box">11111</div>
-        </LazyLoad>
-      </div>
-
-      <div>
-        {hoverable}
-        <div>{hovered ? "Yes" : "No"}</div>
-      </div>
-    </div>
+    <button
+      onClick={() => {
+        message.add({
+          content: "请求成功",
+        });
+      }}
+    >
+      成功
+    </button>
   );
 }
+
+function App() {
+  return (
+    <ConfigProvider>
+      <div>
+        <Aaa></Aaa>
+      </div>
+    </ConfigProvider>
+  );
+}
+
 export default App;

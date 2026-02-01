@@ -12,6 +12,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@react-spring/web": "^10.0.3",
     "@storybook/react": "^10.2.0",
     "@types/lodash-es": "^4.17.12",
     "ahooks": "^3.9.6",
@@ -22,6 +23,7 @@
     "lodash-es": "^4.17.23",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-transition-group": "^4.4.5",
     "sass": "^1.97.3"
   },
   "devDependencies": {
